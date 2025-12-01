@@ -9,4 +9,4 @@ Project Top Hat is a project dedictated to createing a browser like experince wi
 * built the foundation for the software
 
 > 1.6 (future update)
-* Ui update planned
+* TBD
