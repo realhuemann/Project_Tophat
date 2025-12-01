@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<head>
+<title>TopHat v1.5</title>
+<link rel="icon" type="image/x-icon" href="https://clipart-library.com/2023/Top-hat-clip-art-images-illustrations-photos.jpg">
+</head>
+
+<body>
+    <img src="https://clipart-library.com/2023/Top-hat-clip-art-images-illustrations-photos.jpg" style="width: 50px; height: 50px; display: inline-block; position: relative; top: 12px;">
+    <h1 style="display: inline-block;">Project TopHat beta v1.5</h1>
+    <p>Copyright 2025 realhuemann</p>
+    <br>
+    <p>What serach engine would you like to use:</p >
+<select id="serach"> 
+    <option value="1"> Dog Pile [default] </option>
+    <option value="2"> Ask Jeeves </option>
+    <option value="3"> Web Crawler </option>
+    <option value="4"> Sogou </option>
+    <option value="6"> Meta Crawler </option>
+    <option value="5"> Base [document search] </option>
+    <option value="7"> Custom [coming soon] </option>
+</select>
+<br>
+
+<p>What resolution would you like your iframe to be:</p>
+
+<select id="resolution"> 
+    <option value="1"> 144p </option>
+    <option value="2"> 240p </option>
+    <option value="3"> 360p </option>
+    <option value="4"> 480p (SD) </option>
+    <option value="5"> 720p (HD) [default] </option>
+    <option value="6"> 1080p (FHD) </option>
+    <option value="7"> 1440p (2k) </option>
+    <option value="8"> 2160p (4k) </option>
+    <option value="9"> costom</option>
+</select>
+
+<br>
+<p>once you find a site you would like to vist paste it here:</p>
+<input type="text" placeholder="https://mysite.com" id="site">
+<input type="button" value="enter" id="button">
+<input type="button" value="refresh page" id="refresh">
+
+<div id="c_res" style="visibility: hidden;">
+<p>width (px):</p>
+<input type="text" value="" id="c_res_w" placeholder="1280">
+<br>
+<p>height (px):</p>
+<input type="text" value="" id="c_res_h" placeholder="720">
+<br>
+<input type="button" value="enter" id="c_res_button">
+</div>
+
+<div id="c_search" style="visibility: hidden;">
+    <p>your search engine:</p>
+    <input type="text" value="" id="c_search_text" placeholder="https://search.com">
+    <input type="button" value="enter" id="c_search_button">
+</div>
+
+<br>
+<iframe id="frame" src="https://dogpile.com" style="width: 1280px; height: 720px; position: relative; bottom: 265px;"> </iframe>
+
+<p id="legal" style="position: relative; bottom: 265px;">We disclaim any and all responsibility for actions taken using our software. Any consequences, including harm or violations of rules, resulting from the use of this software are the sole responsibility of the user. images on this page are property of there respective owners. Top Hat #3478940. clipart-library.com/clipart/top-hat-clipart-19.htm. Accessed 30 Apr. 2025./p>
+
+</body>
+</html>
+
+<script>
+    let search = document.getElementById("serach")
+    let resolution = document.getElementById("resolution")
+    let frame = document.getElementById("frame")
+    let legal = document.getElementById("legal")
+    let text = document.getElementById("site")
+    let button = document.getElementById("button")
+    let c_res = document.getElementById("c_res")
+    let c_res_h = document.getElementById("c_res_h")
+    let c_res_w = document.getElementById("c_res_w")
+    let c_res_button = document.getElementById("c_res_button")
+    let c_search = document.getElementById("c_search")
+    let c_res_text = document.getElementById("c_res_text")
+    resolution.value = 5
+    search.value = 1
+    let serach_value = search.value
+    let res_value = resolution.value
+
+    setInterval(() => {
+     if (resolution.value !== res_value){
+        if (resolution.value == 1) {
+            frame.style.width = "256px"
+            frame.style.height = "144px"
+            res_value = resolution.value
+        }  
+
+        if (resolution.value == 2) {
+            frame.style.width = "426px"
+            frame.style.height = "240px"
+            res_value = resolution.value
+        }  
+
+        if (resolution.value == 3) {
+            frame.style.width = "640px"
+            frame.style.height = "360px"
+            res_value = resolution.value
+        }  
+
+        if (resolution.value == 4) {
+            frame.style.width = "854px"
+            frame.style.height = "480px"
+            res_value = resolution.value
+        }  
+
+        if (resolution.value == 5) {
+            frame.style.width = "1280px"
+            frame.style.height = "720px"
+            res_value = resolution.value
+        }  
+
+        if (resolution.value == 6) {
+            frame.style.width = "1920px"
+            frame.style.height = "1080px"
+            res_value = resolution.value
+        }  
+
+        if (resolution.value == 7) {
+            frame.style.width = "2560px"
+            frame.style.height = "1440px"
+            res_value = resolution.value
+        }  
+
+        if (resolution.value == 8) {
+            frame.style.width = "3840px"
+            frame.style.height = "2160px"
+            res_value = resolution.value
+        }  
+
+        if (resolution.value == 9) {
+            function c_res_button_click(){
+                frame.style.width = c_res_w.value + "px"
+                frame.style.height = c_res_h.value + "px"
+            }
+            frame.style.bottom = "0px"
+            legal.style.bottom = "0px"
+            c_res.style.visibility = "visible"
+            c_res_button.addEventListener("click",c_res_button_click)
+        }  
+        else {
+            frame.style.bottom = "265px"
+            legal.style.bottom = "265px"
+            removeEventListener("click", c_res_button_click)
+            c_res.style.visibility = "hidden"
+        }
+    }   
+
+    if (serach_value !== search.value){
+        if (search.value == 1){
+            frame.src = "https://www.dogpile.com/"
+            serach_value = search.value
+        }
+
+        if (search.value == 2){
+            frame.src = "https://ask.com"
+            serach_value = search.value
+        }
+
+        if (search.value == 3){
+            frame.src = "https://www.webcrawler.com"
+            serach_value = search.value
+        }
+
+        if (search.value == 4){
+            frame.src = "https://sogou.com"
+            serach_value = search.value
+        }
+
+        if (search.value == 5){
+            frame.src = "https://base-search.net/"
+            serach_value = search.value
+        }
+
+        if (search.value == 6){
+            frame.src = "https://metacrawler.com"
+            serach_value = search.value
+        }
+
+        if (search.value == 7){
+            alert("coming soon")
+            search.value = serach_value
+        }
+    }
+    }, 50);
+    
+    button.addEventListener("click", function(){
+        frame.src = text.value
+    })
+
+    document.getElementById("refresh").addEventListener("click", function(){
+        res_value = null
+        serach_value = null
+        text.value = ""
+    })
+</script>
